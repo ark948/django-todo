@@ -1,3 +1,17 @@
+what this project will contain:
+    at first, a simple todo app
+    then a restful api for it
+    then a blog
+    then a restful api for it
+    sqlite for development
+    postgresql database for production
+    docker
+
 page -> landing page for home
 
 not running migratinos until a custom user model is created
+
+1. it's time for custom user
+    1.1 for that, accounts app is required
+    1.2 add custom user model to accounts/models.py
+    1.3 add accounts app to isntalled_apps

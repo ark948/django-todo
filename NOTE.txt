@@ -1,0 +1,3 @@
+page -> landing page for home
+
+not running migratinos until a custom user model is created

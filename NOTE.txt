@@ -1,11 +1,10 @@
 what this project will contain:
-    at first, a simple todo app
-    then a restful api for it
-    then a blog
-    then a restful api for it
-    sqlite for development
-    postgresql database for production
-    docker
+    - simple todo app
+    - restful api for todo app
+    - blog (complete with tags, follow/unfollow system, search)
+    - restful api for blog
+    - sqlite3 for development
+    - PostgreSQL + Docker for production
 
 page -> landing page for home
 

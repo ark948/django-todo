@@ -14,3 +14,8 @@ not running migratinos until a custom user model is created
     1.1 for that, accounts app is required
     1.2 add custom user model to accounts/models.py
     1.3 add accounts app to isntalled_apps
+    1.4 add forms for creation and editing of users to accounts/forms.py
+    1.5 update accounts/admin.py to use the forms
+    1.6 create superuser: admin-admin@example.com-1
+    1.7 add and run tests for user in accounts/tests.py
+    1.8 check superuser was created successfully

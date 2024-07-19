@@ -9,7 +9,7 @@ what this project will contain:
     - Whitenoise (to server static files in production)
     - Gunicorn (probably)
 
-page -> landing page for home
+pages app is the landing page (index)
 
 not running migratinos until a custom user model is created
 
@@ -110,3 +110,5 @@ not running migratinos until a custom user model is created
     - (random numbers will be added to the pre @ part of email address)
     5.19 test if everything works (ok)
     - committing
+    5.20 add new tests to accounts/tests.py
+    

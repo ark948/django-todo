@@ -7,12 +7,19 @@ what this project will contain:
     - PostgreSQL for production
     - Docker for production
 
-    - Pre-production:
+    - pre-production:
     - Whitenoise (to serve static files)
-    - Environment variables
+
+remaining:
+    - collecting static files
+    - adding environment variables
+    - adding ui library
+    - todo app
+    - todo app rest api
+    - blog app
+    - blog app rest api
 
 pages app is the landing page (index)
-
 not running migratinos until a custom user model is created
 
 1. it's time for custom user
@@ -131,4 +138,12 @@ not running migratinos until a custom user model is created
     6.6 test if email confirmation works
     note: email confirmation works, but has no effect
     note: password reset request and password reset change templates need heavy modification (rtl instead of ltr, and language fix)
+    
+7. adding todo app
+    > python manage.py startapp todo
+    > commit right now, with empty app
+    7.1 design model relations
+    7.2 add models
+    7.3 make and run migrations
+    note: database relation between CustomUser and task, user has tasks_list and every task has a owner
     

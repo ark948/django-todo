@@ -3,4 +3,15 @@
 
 {% block content %}
     <h1>خانه</h1>
+    {% if user.is_authenticated %}
+        <p>سلام. {{ user.email }}</p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">خروج</button>
+        </form>
+    {% else %}
+        <p>شما وارد نشده اید.</p>
+        <a href="{% url 'login' %}">ورود</a>
+        <a href="{% url 'accounts:signup' %}">ثبت نام</a>
+    {% endif %}
 {% endblock content %}

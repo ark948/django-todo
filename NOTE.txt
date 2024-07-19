@@ -32,3 +32,18 @@ not running migratinos until a custom user model is created
     2.9 update pages/urls.py
     2.10 update _base.html to be base template
     2.11 update pages/index.html to inehrit from _base.html
+
+3. adding basic authentication
+    - for login, logout, sign up. login and logout using django's auth app. sign up must be added manually
+    3.1 add auth.urls to core urls.py file: path("accounts/", include("django.contrib.auth.urls")), -> urls.py
+    3.2 add links for login and logout to home.html
+    3.3 create registration folder in templates
+    3.4 add login.html to templates/registration folder
+    3.5 add LOGIN_REDIRECT_URL and LOGOUT_REDIRECT_URL to settings.py
+    3.6 add urls.py to accounts
+    3.7 add signup route to accounts.urls.py
+    3.8 add signup view to accounts/views.py
+    3.9 include accounts/urls.py in core urls.py
+    3.10 add signup.html to template/registration
+    3.11 update home.html to include a link towards signup
+    update: built-in login and logout must have no app_name prefix (accounts). even though accounts app has app_name in its urls.py

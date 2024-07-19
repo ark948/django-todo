@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # required by allauth
 
+    'allauth',
+    'allauth.account',
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
 ]
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware', # allauth middleware
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -130,3 +134,17 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 LOGIN_REDIRECT_URL = "pages:index"
 LOGOUT_REDIRECT_URL = "pages:index"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+SITE_ID = 1 # required by allauth
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend", # allauth's authentication backend
+)
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend" # required by allauth
+ACCOUNT_LOGOUT_REDIRECT = "pages:index"
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+# email only login and signup (4 vars)
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True

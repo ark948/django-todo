@@ -5,13 +5,14 @@
     <h1>خانه</h1>
     {% if user.is_authenticated %}
         <p>سلام. {{ user.email }}</p>
-        <form method="post" action="{% url 'logout' %}">
+        <!-- <form method="post" action="{% url 'account_logout' %}">
             {% csrf_token %}
             <button type="submit">خروج</button>
-        </form>
+        </form> -->
+        <p><a href="{% url 'account_logout' %}">EXIT</a></p>
     {% else %}
         <p>شما وارد نشده اید.</p>
-        <a href="{% url 'login' %}">ورود</a>
-        <a href="{% url 'accounts:signup' %}">ثبت نام</a>
+        <a href="{% url 'account_login' %}">ورود</a>
+        <a href="{% url 'account_signup' %}">ثبت نام</a>
     {% endif %}
 {% endblock content %}

@@ -65,3 +65,48 @@ not running migratinos until a custom user model is created
     4.5 test if base.css can be properly loaded by adding a simple ruleset to base.css
     4.6 link base.css in _base.html + add add {% load staic %} tag to _base.html
     IMPORTANT: for development, serving static files with django is ok, for production switch to Whitenoise
+    - temporarily skipping the rest of this section (collecting static files)
+
+5. adding advanced authentication
+    - package to install django-allauth
+    - (already have whl files, installation proceed offline if necessary)
+    > pip install django-allauth
+    > pip freeze > requirements.txt (updating requirements)
+    5.1 add django-allauth to isntalled_apps: 'allauth' and 'allauth.account' to INSTALLED_APPS in settings.py
+    5.2 also 'django.contrib.sites' must be added to INSTALLED_APPS
+    5.3 add SITE_ID to settings.py
+    5.4 add allauth's authentication backend to AUTHENTICATION_BACKENDS (this config variable must be explicitly added)
+    (it's there but hidden or implicit)
+    5.5 specify email backend (default is console backend)
+    5.6 add ACCOUNT_LOGOUT_REDIRECT = "home" to settings.py (edit the endpoint accordingly)
+    5.7 add allauth's middleware to MIDDLEWARES in settings.py
+    5.8 run migrate (no make)
+    > python manage.py migrate
+    5.9 update the core urls.py file: accounts path (change accounts.urls to allauth.urls - accounts/ url prefix remeains untouched)
+    - built-in auth app was used for login and route (delete 01)
+    - accounts.urls was used for signup page (delete 02)
+    - these two must be replaced with allauth.urls
+    5.10 mark accounts/views.SignUpPage and accounts.urls.py file as unused
+    5.11 make 'account' directory in templates (django-allauth will look for templates, it is account not accounts)
+    5.12 add login.html and signup.html to templates/accounts directory (older login and singup html files can also be moved there)
+    - (i will just copy the code)
+    5.13 update home.html login and signup links to point to allauth routes by adding _account prefix to endpoint names
+    5.14 'remember_me' feature can be disabled by adding ACCOUNT_SESSION_REMEMBER = None to settings.py
+    5.15 add intermediary logout page to templates/account/logout.html
+    - (for this, logout post action may need to be changed to a simple anchor tag pointing to 'account_logout')
+    5.16 check if everything works so far
+    PROBLEM 01: remember_me is showing in login page (fixed, set to True to always remember)
+    - login (ok), intermediary_logout (not displaying), logout (ok), signup (ok)
+    PROBLEM 02: intermediary logout page not showing
+    - FIXED by changing the logout form in home.html to anchor tag
+    FEATURE TO ADD: successful signup and logout messages
+    5.17 to make signup page only ask for password once, add ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False to settings.py (ok)
+    5.18 to add email only login: add 4 config variables to settings.py:
+        ACCOUNT_USERNAME_REQUIRED = False
+        ACCOUNT_AUTHENTICATION_METHOD = "email"
+        ACCOUNT_EMAIL_REQUIRED = True
+        ACCOUNT_UNIQUE_EMAIL = True
+    - note: by doing this, a unique username will be generated upon signup (this will change signup as well as login) using user's email
+    - (random numbers will be added to the pre @ part of email address)
+    5.19 test if everything works (ok)
+    - committing

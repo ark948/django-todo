@@ -6,8 +6,10 @@ what this project will contain:
     - sqlite3 for development
     - PostgreSQL for production
     - Docker for production
-    - Whitenoise (to server static files in production)
-    - Gunicorn (probably)
+
+    - Pre-production:
+    - Whitenoise (to serve static files)
+    - Environment variables
 
 pages app is the landing page (index)
 
@@ -111,4 +113,22 @@ not running migratinos until a custom user model is created
     5.19 test if everything works (ok)
     - committing
     5.20 add new tests to accounts/tests.py
+    
+6. adding email
+    6.1 add email folder to account in templates directory
+    > mkdir templates\account\email
+    6.2 add two files to it: email_confirmation_message.txt and email_confirmation_subject.txt (and copy the content from previous project)
+    6.3 edit the domain name in interface sites section (admin > sites)
+    - (update the domain name and display name to something else)
+    - (e.g. todowithdjango.com , Todo with Django)
+    6.4 update the DEFAULT_FROM_EMAIL in settings.py
+    - (this setting is used to display the sender in confirmation email when a user signs up)
+    - (change it to the admin's email address)
+    6.5 add email_confirm.html to templates/account
+    6.6 test the following routes:
+        - http://127.0.0.1:8000/accounts/password/reset/ (ok)
+        - http://127.0.0.1:8000/accounts/password/change/ (ok)
+    6.6 test if email confirmation works
+    note: email confirmation works, but has no effect
+    note: password reset request and password reset change templates need heavy modification (rtl instead of ltr, and language fix)
     

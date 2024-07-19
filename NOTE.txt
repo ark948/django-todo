@@ -1,10 +1,13 @@
 what this project will contain:
     - simple todo app
-    - restful api for todo app
+    - restful api for todo app (Django Rest Framework)
     - blog (complete with tags, follow/unfollow system, search)
     - restful api for blog
     - sqlite3 for development
-    - PostgreSQL + Docker for production
+    - PostgreSQL for production
+    - Docker for production
+    - Whitenoise (to server static files in production)
+    - Gunicorn (probably)
 
 page -> landing page for home
 
@@ -52,3 +55,13 @@ not running migratinos until a custom user model is created
     3.11 update home.html to include a link towards signup
     update: built-in login and logout must have no app_name prefix (accounts). even though accounts app has app_name in its urls.py
     3.12 add tests for signup feature
+
+4. adding static assets
+    - static assets (js, css, images, need to be served separately in production)
+    4.1 create static directory in root project directory
+    4.2 add css, js, images folders to static folder
+    4.3 add base.css to css, base.js to js, and .keep to images folder in static
+    4.4 add STATICFILES_DIRS = [BASE_DIR / "static"] to settings.py
+    4.5 test if base.css can be properly loaded by adding a simple ruleset to base.css
+    4.6 link base.css in _base.html + add add {% load staic %} tag to _base.html
+    IMPORTANT: for development, serving static files with django is ok, for production switch to Whitenoise

@@ -19,3 +19,16 @@ not running migratinos until a custom user model is created
     1.6 create superuser: admin-admin@example.com-1
     1.7 add and run tests for user in accounts/tests.py
     1.8 check superuser was created successfully
+
+2. adding templates
+    2.1 folder templates in root directory
+    2.2 add BASE_DIR / "templates" to DIRS in TEMPLATES in settings.py
+    2.3 add _base.html to templates
+    2.4 add pages folder to templates
+    2.5 add index.html to templates/pages
+    2.6 update pages:index to render index.html
+    2.7 check if it worked
+    2.8 update pages:index to class-based views
+    2.9 update pages/urls.py
+    2.10 update _base.html to be base template
+    2.11 update pages/index.html to inehrit from _base.html

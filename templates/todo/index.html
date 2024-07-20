@@ -3,9 +3,15 @@
 {% block content %}
     صفحه اصلی todo
     {% for task in todays_tasks %}
-        {{ taks.title }} - {{ task.details }}
+        <br>{{ task.title }} - {{ task.details }}
     {% empty %}
         <p>لیست شما خالی می باشد.</p>
     {% endfor %}
+
+    <form method="post" action="{% url 'todo:new' %}">
+        {% csrf_token %}
+        {{ new_task_form.as_p }}
+        <button type="submit">افزودن</button>
+    </form>
     
 {% endblock content %}

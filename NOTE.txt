@@ -175,6 +175,10 @@ not running migratinos until a custom user model is created
     7.12 update the todo index.html template to display the user's tasks (ok)
     7.13 add login required mixin to todo views (separate section)
     7.14 trying to add a modal form to add new task in todo/index.html (apparently requires bootstrap - htmx requires bootstrap)
+    - testing the NewTaskForm manually first:
+    7.15 render the NewTaskForm in todo index
+    - re-writing todo index view with function views (not re-writing, just swapping urls)
+    
 
 8. adding permissions
     8.1 import LoginRequiredMixin and add it to todo views
@@ -184,3 +188,8 @@ not running migratinos until a custom user model is created
     9.1 download bootstrap
     9.2 add links to bootstrap files to _base.html
     9.3 test if worked (ok)
+
+10. adding HTMX
+    - installation (according to htmx docs itself):
+    10.1 download a copy and include in project (i guess like bootstrap)
+    10.2 trying to add the modal window (although i should test the form normally first)

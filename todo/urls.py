@@ -1,7 +1,8 @@
 from django.urls import path
-from todo.views import TodoHomePage
+from todo.views import index, new_task_process
 
 app_name = "todo"
 urlpatterns = [
-    path("", TodoHomePage.as_view(), name="index"),
+    path("", index, name="index"),
+    path("new-task/", new_task_process, name="new"),
 ]

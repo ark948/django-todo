@@ -165,3 +165,4 @@ not running migratinos until a custom user model is created
     STUPID MISTAKTE DETECTED: in TaskStatus, completed and finished are the same thing
     - todo models tests were added
     - todo form tests added
+    - todo views tests will be added after login required is implemented

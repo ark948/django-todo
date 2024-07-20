@@ -8,11 +8,13 @@
         {% block title %}
         {% endblock title %}
     </title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.rtl.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
     {% block content %}
     {% endblock content %}
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
 </body>
 </html>

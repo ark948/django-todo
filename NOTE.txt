@@ -166,3 +166,8 @@ not running migratinos until a custom user model is created
     - todo models tests were added
     - todo form tests added
     - todo views tests will be added after login required is implemented
+    7.11 update todo landing page with user's current task list
+    - use admin interface to make some tasks with a testuser
+    HUGE PROBLEM: task_status is unique (before fixing this, previous records must be deleted)
+    - adding unique=False to status of Task did not work.
+    - trying to change OneToOneField of status in Task to ForeignKey

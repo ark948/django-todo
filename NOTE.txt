@@ -164,3 +164,4 @@ not running migratinos until a custom user model is created
     NOTE: for this to work, app's tests.py file must be removed
     STUPID MISTAKTE DETECTED: in TaskStatus, completed and finished are the same thing
     - todo models tests were added
+    - todo form tests added

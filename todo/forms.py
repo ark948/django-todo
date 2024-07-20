@@ -1,5 +1,5 @@
 from django import forms
 
 class NewTaskForm(forms.Form):
-    title = forms.CharField(max_length=50, required=True, label="عنوان")
-    details = forms.TextInput(label="جزئیات")
+    title = forms.CharField(label="عنوان", max_length=50, required=True)
+    details = forms.TextInput()

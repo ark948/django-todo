@@ -2,4 +2,9 @@
 
 {% block content %}
     صفحه اصلی todo
+    {% for task in todays_tasks %}
+        {{ taks.title }} - {{ task.details }}
+    {% empty %}
+        <p>لیست شما خالی می باشد.</p>
+    {% endfor %}
 {% endblock content %}

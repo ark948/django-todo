@@ -8,7 +8,7 @@ class TaskStatus(models.Model):
     name = models.CharField("name", null=False, blank=False, max_length=30)
 
     def __str__(self):
-        return f"Status of task {self.name}"
+        return f"{self.name}"
     
     class Meta:
         verbose_name = "TaskStatus"

@@ -10,6 +10,7 @@
             <button type="submit">خروج</button>
         </form> -->
         <p><a href="{% url 'account_logout' %}">EXIT</a></p>
+        <p><a href="{% url 'todo:index' %}">todo</a></p>
     {% else %}
         <p>شما وارد نشده اید.</p>
         <a href="{% url 'account_login' %}">ورود</a>

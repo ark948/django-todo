@@ -160,4 +160,7 @@ not running migratinos until a custom user model is created
     - that form needs to be utilized in a view
     7.8 add lading page for todo app (done)
     7.9 tests for todo models and views and forms must be added
-    
+    7.10 upgrading test structure from single file to package with a module for each section (models, forms, views)
+    NOTE: for this to work, app's tests.py file must be removed
+    STUPID MISTAKTE DETECTED: in TaskStatus, completed and finished are the same thing
+    - todo models tests were added

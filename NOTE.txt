@@ -154,4 +154,10 @@ not running migratinos until a custom user model is created
     note: apparently adding models to admin requires them to be accessible through url
     BUG: TaskStatus in admin interface is displayed TaskStatuss, this is not good
     fixed by adding verbose_name_plural to Meta of TaskStatus model class
+    - trying 7.5 again
+    7.6 add forms.py to todo app
+    7.7 need one form for users to be able to add tasks
+    - that form needs to be utilized in a view
+    7.8 add lading page for todo app (done)
+    7.9 tests for todo models and views and forms must be added
     

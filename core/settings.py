@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.account',
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
+    "todo.apps.TodoConfig",
 ]
 
 MIDDLEWARE = [

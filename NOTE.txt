@@ -142,6 +142,7 @@ not running migratinos until a custom user model is created
 7. adding todo app
     > python manage.py startapp todo
     > commit right now, with empty app
+    mistake: add todo app to INSTALLED_APPS in settings.py
     7.1 design model relations
     7.2 add models
     7.3 make and run migrations

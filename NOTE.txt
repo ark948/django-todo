@@ -147,4 +147,11 @@ not running migratinos until a custom user model is created
     7.2 add models
     7.3 make and run migrations
     note: database relation between CustomUser and task, user has tasks_list and every task has a owner
+    7.4 add todo models to admin interface in todo/admin.py
+    7.5 use admin interface to add TaskStatuses (completed, in_progress, delayed, finished)
+    error: Task object has no attribute urls
+    fixed: every model needed to be registered in admin in separate admin.site.register statements
+    note: apparently adding models to admin requires them to be accessible through url
+    BUG: TaskStatus in admin interface is displayed TaskStatuss, this is not good
+    fixed by adding verbose_name_plural to Meta of TaskStatus model class
     

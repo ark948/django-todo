@@ -198,5 +198,10 @@ not running migratinos until a custom user model is created
 
 11. adding jquery
     11.1 download and install jquery file, and put it in static/js folder
-    - i will include it in base template
+    - i will include it in base template (update: created dedicated template block for jquery)
     11.2 test if jquery is loaded (by adding doc ready to base) done
+    11.3 adding a view to handle ajax request in todo app views.py file
+    11.4 create a url pattern for it in todo urls.py fil
+    11.5 adding the ajax code to template todo index
+    (error: $ is not defined in todo index page)
+    - error solved by moving jquery codes to its own block in templates (committing)

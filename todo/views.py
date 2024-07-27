@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import ListView, CreateView
 from todo.models import Task, TaskStatus
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -49,3 +49,8 @@ def new_task_process(request):
             print(form.errors)
             messages.error(request, "خطا در فرم")
     return redirect("todo:index")
+
+def get_data(request):
+    # ajax
+    data = {'message': "Hello from ajax"}
+    return JsonResponse(data)

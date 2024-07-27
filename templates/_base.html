@@ -16,6 +16,12 @@
     {% endblock content %}
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'htmx.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.7.1.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            console.log("JQuery loaded successfully");
+        });
+    </script>
 </body>
 </html>

@@ -9,6 +9,7 @@ from todo.forms import NewTaskForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.serializers import serialize
 
 # Create your views here.
 
@@ -54,3 +55,12 @@ def get_data(request):
     # ajax
     data = {'message': "Hello from ajax"}
     return JsonResponse(data)
+
+def get_tasks(request):
+    context = {}
+    first_task = Task.objects.filter(owner__pk=request.user.pk).first()
+    data = serialize("json", [first_task], fields=('title'))
+    # todays_tasks = Task.objects.filter(owner__pk=request.user.pk).order_by("created")
+    # return JsonResponse({'todos': list(todays_tasks.values())})
+    return JsonResponse(data, safe=False)
+    

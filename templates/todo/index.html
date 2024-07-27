@@ -13,6 +13,9 @@
     <br>
     <div id="ajax-response"></div>
 
+    <br>
+    <p id="ajax_content">this is ajax stuff:</p>
+
     <form method="post" action="{% url 'todo:new' %}">
         {% csrf_token %}
         {{ new_task_form.as_p }}
@@ -23,6 +26,16 @@
 {% block jquery %}
 <script>
     $(document).ready(function() {
+        $.ajax({
+            url: '{% url "todo:get_tasks" %}',
+            type: 'GET',
+            dataType: 'json',
+        }).done(function(response) {
+            console.log("GET sent");
+            let data = JSON.parse(response);
+            console.log(data[0].fields.title);
+            $('#ajax_content').text(data[0].fields.title);
+        });
         $('#ajax-button').click(function() {
             $.ajax({
                 url: '{% url "todo:get_data" %}',

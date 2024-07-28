@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,19 +12,54 @@
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.rtl.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
+
 <body>
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'htmx.min.js' %}"></script>
     <script src="{% static 'js/jquery-3.7.1.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             console.log("JQuery loaded successfully");
         });
     </script>
-    {% block content %}
-    {% endblock content %}
+    <section>
+        <header>
+            <h1>Todo</h1>
+        </header>
+    </section>
+    <nav class="main-nav">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Todo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">لیست</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">درباره/تماس</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer>
+    </footer>
     {% block jquery %}
     {% endblock jquery %}
 </body>
+
 </html>

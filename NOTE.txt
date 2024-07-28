@@ -205,4 +205,5 @@ not running migratinos until a custom user model is created
     11.5 adding the ajax code to template todo index
     (error: $ is not defined in todo index page)
     - error solved by moving jquery codes to its own block in templates (committing)
-    NOTE: so jquery ajax responses must be JsonResponse
+    NOTE: so jquery ajax responses must be JsonResponse (stil not fully sure)
+    - updating base template a bit

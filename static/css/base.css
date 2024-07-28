@@ -1,3 +1,11 @@
-h1 {
-    color: red;
+main {
+    margin: 50px;
+}
+
+header {
+    margin: 50px;
+}
+
+nav {
+    margin: 20px;
 }

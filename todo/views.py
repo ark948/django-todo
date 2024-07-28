@@ -63,4 +63,11 @@ def get_tasks(request):
     # todays_tasks = Task.objects.filter(owner__pk=request.user.pk).order_by("created")
     # return JsonResponse({'todos': list(todays_tasks.values())})
     return JsonResponse(data, safe=False)
+
+def test_request_type(request):
+    if request.is_ajax():
+        data = {"message": "YES AJAX"}
+    else:
+        data = {"message": "NOT AJAX"}
+    return JsonResponse(data=data)
     

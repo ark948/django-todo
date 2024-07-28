@@ -207,3 +207,4 @@ not running migratinos until a custom user model is created
     - error solved by moving jquery codes to its own block in templates (committing)
     NOTE: so jquery ajax responses must be JsonResponse (stil not fully sure)
     - updating base template a bit
+    - upateing todo's index page (adding actual table)

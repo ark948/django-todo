@@ -16,26 +16,59 @@
         </tr>
     </thead>
     <tbody>
-            {% for task in todays_tasks %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ task.title }}</td>
-                <td>{{ task.details }}</td>
-                <td>{{ task.created }}</td>
-                <td>{{ task.status }}</td>
-            </tr>
-            {% empty %}
-                <p>لیست شما خالی می باشد.</p>
-            {% endfor %}
+        {% for task in todays_tasks %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.details }}</td>
+            <td>{{ task.created }}</td>
+            <td>{{ task.status }}</td>
+        </tr>
+        {% empty %}
+        <p>لیست شما خالی می باشد.</p>
+        {% endfor %}
     </tbody>
 </table>
 <!-- table ends here-->
+<!-- add task modal starts here -->
+<div id="add_task_modal">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- add task modal ends here -->
+<br>
+<!-- <button id="refresh_btn" type="button" class="btn btn-primary btn-sm">بروزرسانی</button> -->
 {% endblock content %}
 
 {% block jquery %}
 <script>
     $(document).ready(function () {
         console.log("JQuery loaded in todo app successfully.");
+        $("#myBtn").click(function () {
+            console.log("reached click action");
+            $("#myModal").modal(); // this is the problem, not showing
+        });
     });
 </script>
 {% endblock jquery %}

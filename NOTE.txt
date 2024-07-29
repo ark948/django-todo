@@ -208,3 +208,6 @@ not running migratinos until a custom user model is created
     NOTE: so jquery ajax responses must be JsonResponse (stil not fully sure)
     - updating base template a bit
     - upateing todo's index page (adding actual table)
+    - trying to add a modal form for adding task feature
+    - first getting the code to display a modal (done)
+    - then modify it to include a form

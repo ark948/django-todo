@@ -34,7 +34,7 @@
 <div id="add_task_modal">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
+        افزودن
     </button>
 
     <!-- Modal -->
@@ -46,11 +46,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form method="post" action="{% url 'todo:new' %}">
+                        {% csrf_token %}
+                        {{ new_task_form.as_p }}
+                        <button type="submit" class="btn btn-primary btn-sm">افزودن</button>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                    <button type="button" class="btn btn-primary">ذخیره</button>
                 </div>
             </div>
         </div>

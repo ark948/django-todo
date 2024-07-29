@@ -13,6 +13,8 @@
             <th scope="col">جزییات</th>
             <th scope="col">تاریخ ایجاد</th>
             <th scope="col">وضعیت</th>
+            <th scope="col">عملیات</th>
+            <th>انتخاب&nbsp;&nbsp;<input type="checkbox" onclick="toggle(this);"></th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +25,18 @@
             <td>{{ task.details }}</td>
             <td>{{ task.created }}</td>
             <td>{{ task.status }}</td>
+            <td>
+                <form method="post" action="{% url 'todo:delete-task' %}" style="display: inline-block;"
+                    onsubmit="return confirm('آیا از حذف این مخاطب اطمینان دارید؟')">
+                    {% csrf_token %}
+                    <input type="hidden" id="id_to_delete" name="id_to_delete" value="{{ task.id }}">
+                    <button id="del_single_task" class="btn btn-danger btn-sm" type="submit">حذف</button>
+                </form>
+            </td>
+            <td>
+                <input type="checkbox" class="form-check-input" id="task_check" value="{{ task.id }}"
+                    onclick="del_checked(value)">
+            </td>
         </tr>
         {% empty %}
         <p>لیست شما خالی می باشد.</p>
@@ -36,6 +50,8 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         افزودن
     </button>
+    &nbsp;
+    <button type="button" id="del_btn" class="btn btn-danger" disabled>حذف</button>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -64,6 +80,25 @@
 <br>
 <!-- <button id="refresh_btn" type="button" class="btn btn-primary btn-sm">بروزرسانی</button> -->
 {% endblock content %}
+
+{% block js %}
+<script>
+    function toggle(source) {
+        let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        for (let i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i] != source) {
+                checkboxes[i].checked = source.checked;
+            }
+        }
+    }
+
+    function del_checked(value) {
+        console.log("item checked ->" + " " + value);
+        $("#del_btn").prop('disabled', false);
+    }
+
+</script>
+{% endblock js %}
 
 {% block jquery %}
 <script>

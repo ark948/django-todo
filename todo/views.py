@@ -51,6 +51,19 @@ def new_task_process(request):
             messages.error(request, "خطا در فرم")
     return redirect("todo:index")
 
+@login_required
+def delete_task(request):
+    if request.method == "POST":
+        task_to_delete = Task.objects.get(pk=int(request.POST.get("id_to_delete")))
+        try:
+            if task_to_delete.owner.id == request.user.id:
+                task_to_delete.delete()
+                messages.info(request, "مخاطب حذف شد.")
+        except Exception as error:
+            print(error)
+            messages.error(request, "خطایی رخ داده است.")
+    return redirect("todo:index")   
+
 def get_data(request):
     # ajax
     data = {'message': "Hello from ajax"}

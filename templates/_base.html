@@ -53,11 +53,34 @@
         </nav>
     </nav>
     <main>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+                {% else %}
+                <div class="alert alert-info" role="alert">
+                    {{ message }}
+                </div>
+                {% endif %}
+                </li>
+                {% endfor %}
+        </ul>
+        {% endif %}
         {% block content %}
         {% endblock content %}
     </main>
     <footer>
     </footer>
+    {% block js %}
+    {% endblock js %}
     {% block jquery %}
     {% endblock jquery %}
 </body>

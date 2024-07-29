@@ -211,3 +211,8 @@ not running migratinos until a custom user model is created
     - trying to add a modal form for adding task feature
     - first getting the code to display a modal (done)
     - then modify it to include a form
+    11.6 adding checkboxes to todo index table (todo's list)
+    - adding done
+    - adding a disabled delete button (temporarily halting this)
+    11.7 adding delete feature for single task (i will add this now and then move onto batch deletetion using checkboxes)
+    11.8 delete feature (for each item) added + notification system

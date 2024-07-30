@@ -216,3 +216,5 @@ not running migratinos until a custom user model is created
     - adding a disabled delete button (temporarily halting this)
     11.7 adding delete feature for single task (i will add this now and then move onto batch deletetion using checkboxes)
     11.8 delete feature (for each item) added + notification system
+
+UPDATE: This project is temporarily discontinued due to my lack of knowledge of jquery ajax and how it works with django.

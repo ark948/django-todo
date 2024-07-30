@@ -51,7 +51,9 @@
         افزودن
     </button>
     &nbsp;
-    <button type="button" id="del_btn" class="btn btn-danger" disabled>حذف</button>
+    <form id="del_form" method="post" action="{% url 'todo:delete-task-json' %}">
+        <button type="button" id="del_btn" class="btn btn-danger" type="submit" disabled>حذف</button>
+    </form>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,6 +97,23 @@
     function del_checked(value) {
         console.log("item checked ->" + " " + value);
         $("#del_btn").prop('disabled', false);
+        $("#del_btn").click(function(ev) {
+            $("#del_form").submit(function(ev) {
+                $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: value,
+                    success: (data) => {
+                        console.log("SUCCESS.");
+                    },
+                    error: (error) => {
+                        console.log("ERROR.");
+                    },
+                });
+                ev.preventDefault();
+            });
+            ev.preventDefault();
+        });
     }
 
 </script>

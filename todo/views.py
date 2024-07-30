@@ -62,7 +62,11 @@ def delete_task(request):
         except Exception as error:
             print(error)
             messages.error(request, "خطایی رخ داده است.")
-    return redirect("todo:index")   
+    return redirect("todo:index")
+
+@login_required
+def delete_task_json(request):
+    pass
 
 def get_data(request):
     # ajax
